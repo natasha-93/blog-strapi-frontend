@@ -3,8 +3,25 @@ import { useParams } from "react-router";
 import Query from "../../components/Query";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
+import gql from "graphql-tag";
 
-import ARTICLE_QUERY from "../../queries/article/article";
+const ARTICLE_QUERY = gql`
+  query Articles($id: ID!) {
+    article(id: $id) {
+      id
+      title
+      content
+      image {
+        url
+      }
+      category {
+        id
+        name
+      }
+      published_at
+    }
+  }
+`;
 
 const Article = () => {
   let { id } = useParams();

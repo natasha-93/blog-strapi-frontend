@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import gql from "graphql-tag";
 import Query from "../Query";
-import CATEGORIES_QUERY from "../../queries/category/categories";
+
+const CATEGORIES_QUERY = gql`
+  query Categories {
+    categories {
+      id
+      name
+    }
+  }
+`;
 
 const Nav = () => {
   return (

@@ -1,5 +1,5 @@
+✔️ Put the queries in the container files themselves
 * Refactor to remove Query component and use hooks directly
 * Look into skeleton UI or simimlar for loading state
-* Put the queries in the container files themselves
 * Update styles
 * Write some posts

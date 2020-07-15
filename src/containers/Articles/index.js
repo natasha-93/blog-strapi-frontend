@@ -1,7 +1,23 @@
 import React from "react";
 import Articles from "../../components/Articles";
 import Query from "../../components/Query";
-import ARTICLES_QUERY from "../../queries/articles/articles";
+import gql from "graphql-tag";
+
+const ARTICLES_QUERY = gql`
+  query Articles {
+    articles {
+      id
+      title
+      category {
+        id
+        name
+      }
+      image {
+        url
+      }
+    }
+  }
+`;
 
 const Home = () => {
   return (

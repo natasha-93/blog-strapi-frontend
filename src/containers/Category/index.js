@@ -2,7 +2,27 @@ import React from "react";
 import { useParams } from "react-router";
 import Articles from "../../components/Articles";
 import Query from "../../components/Query";
-import CATEGORY_ARTICLES_QUERY from "../../queries/category/articles";
+import gql from "graphql-tag";
+
+const CATEGORY_ARTICLES_QUERY = gql`
+  query Category($id: ID!) {
+    category(id: $id) {
+      name
+      articles {
+        id
+        title
+        content
+        image {
+          url
+        }
+        category {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
 
 const Category = () => {
   let { id } = useParams();
